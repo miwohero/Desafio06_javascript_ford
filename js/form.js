@@ -20,7 +20,7 @@ function Post(event, form) {
 
     // Ponto de integração: aqui os dados ficam prontos para serem enviados
     // ao sistema da companhia (ex.: via fetch/AJAX para uma API).
-    console.log('Dados capturados do formulário de contato:', dadosContato);
+    console.log('Dados capturados do formulário de contato:', 'dadosContato');
 
     alert('Obrigado, ' + dadosContato.nome + '! Seus dados foram enviados com sucesso.');
 
