@@ -18,6 +18,7 @@ class Carousel {
         this.url = url;
     }
 
+    
     // Inicializa o carrossel: recebe o array de imagens e começa a exibição
     static Start(arr) {
         if (!arr || arr.length === 0) {
@@ -41,21 +42,30 @@ class Carousel {
 
     // Exibe o item atual na tela e avança o contador para o próximo
     static Next(arr) {
-        var item = arr[Carousel.current];
+    var item = arr[Carousel.current];
 
-        var carouselDiv = document.getElementById('carousel');
-        var titleDiv = document.getElementById('carousel-title');
+    var carouselDiv = document.getElementById('carousel');
+    var titleDiv = document.getElementById('carousel-title');
 
-        // Altera o estilo via JavaScript para exibir a imagem de fundo
-        carouselDiv.style.backgroundImage = "url('img/" + item.image + "')";
-        carouselDiv.style.backgroundSize = 'cover';
-        carouselDiv.style.backgroundPosition = 'center';
-        carouselDiv.style.backgroundRepeat = 'no-repeat';
+    carouselDiv.innerHTML = `<img src="imagens/${item.image}" alt="${item.title}">`;
+    titleDiv.innerText = item.title;
 
-        // Injeta o texto e o link dentro da div de título
-        titleDiv.innerHTML = '<a href="' + item.url + '">' + item.title + '</a>';
+    // Altera o estilo via JavaScript para exibir a imagem de fundo
+    carouselDiv.style.backgroundImage = "url('img/" + item.image + "')";
+    carouselDiv.style.backgroundSize = 'cover';
+    carouselDiv.style.backgroundPosition = 'center';
+    carouselDiv.style.backgroundRepeat = 'no-repeat';
 
-        // Incrementa o contador de forma circular (volta ao início ao chegar no fim)
-        Carousel.current = (Carousel.current + 1) % arr.length;
-    }
+    // Torna a imagem clicável, redirecionando para a URL do item
+    carouselDiv.style.cursor = 'pointer';
+    carouselDiv.onclick = function () {
+        window.location.href = item.url;
+    };
+
+    // Injeta o texto e o link dentro da div de título
+    titleDiv.innerHTML = '<a href="' + item.url + '">' + item.title + '</a>';
+
+    // Incrementa o contador de forma circular (volta ao início ao chegar no fim)
+    Carousel.current = (Carousel.current + 1) % arr.length;
 }
+    }

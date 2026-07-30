@@ -1,5 +1,5 @@
 // Captura os dados do formulário de contato para futura integração com o sistema da empresa
-function Post(form) {
+function Post(event, form) {
     // Impede o recarregamento da página ao enviar o formulário
     if (window.event) {
         window.event.preventDefault();
