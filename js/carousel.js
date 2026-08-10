@@ -47,14 +47,7 @@ class Carousel {
     var carouselDiv = document.getElementById('carousel');
     var titleDiv = document.getElementById('carousel-title');
 
-    carouselDiv.innerHTML = `<img src="imagens/${item.image}" alt="${item.title}">`;
-    titleDiv.innerText = item.title;
-
-    // Altera o estilo via JavaScript para exibir a imagem de fundo
-    carouselDiv.style.backgroundImage = "url('img/" + item.image + "')";
-    carouselDiv.style.backgroundSize = 'cover';
-    carouselDiv.style.backgroundPosition = 'center';
-    carouselDiv.style.backgroundRepeat = 'no-repeat';
+    carouselDiv.innerHTML = `<img src="img/${item.image}" alt="${item.title}">`;
 
     // Torna a imagem clicável, redirecionando para a URL do item
     carouselDiv.style.cursor = 'pointer';
