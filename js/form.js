@@ -12,15 +12,15 @@ function Post(event, form) {
         dadosContato[campo] = valor;
     });
 
-    // Validação simples: garante que a opção de contato foi realmente escolhida
-    if (dadosContato.contato === 'COMO DESEJA SER CONTATADO') {
-        alert('Por favor, selecione como deseja ser contatado.');
+    // Validação simples: garante que o tipo de contato foi realmente escolhido
+    if (dadosContato.tipoContato === 'TIPO DE CONTATO') {
+        alert('Por favor, selecione o tipo de contato.');
         return false;
     }
 
     // Ponto de integração: aqui os dados ficam prontos para serem enviados
     // ao sistema da companhia (ex.: via fetch/AJAX para uma API).
-    console.log('Dados capturados do formulário de contato:', 'dadosContato');
+    console.log('Dados capturados do formulário de contato:', dadosContato);
 
     alert('Obrigado, ' + dadosContato.nome + '! Seus dados foram enviados com sucesso.');
 
